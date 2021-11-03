@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -c -Wall
 OUT = output
-OBJS = main.o calculator.o
+OBJS = main.o calculator.o mylib.a
 
 
 all: $(OBJS)
@@ -15,6 +15,9 @@ main.o: main.cpp
 
 calculator.o: calculator.cpp
 	$(CC) $(CFLAGS) calculator.cpp
+
+mylib.a: calculator.cpp
+	ar -rcs mylib.a calculator.o
 
 clean:
 	rm -rf *.o $(OUT)
