@@ -1,0 +1,20 @@
+CC = g++
+CFLAGS = -c -Wall
+OUT = output
+OBJS = main.o calculator.o
+
+
+all: $(OBJS)
+	$(CC) main.o calculator.o -o $(OUT)
+
+# $(OUT): main.o calculator.o
+#     $(CC) $(CFLAGS) $(CLIBS) -o $(OUT) $(OBJS)
+
+main.o: main.cpp
+	$(CC) $(CFLAGS) main.cpp
+
+calculator.o: calculator.cpp
+	$(CC) $(CFLAGS) calculator.cpp
+
+clean:
+	rm -rf *.o $(OUT)
